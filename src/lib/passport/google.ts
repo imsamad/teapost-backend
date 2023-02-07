@@ -21,7 +21,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-      callbackURL: 'http://teapost-backend.onrender.com/api/v1/auth/google_cb',
+      callbackURL: '/api/v1/auth/google_cb',
       scope: ['profile', 'email'],
     },
     async function (accessToken, refreshToken, { _raw, ...rest }, done) {
