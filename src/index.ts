@@ -48,13 +48,14 @@ app.use(passport.session());
 
 app.use(xss());
 app.use(hpp());
-app.use(
-  cors({
+app.use(cors());
+/*
+{
     origin: 'http://localhost:3000',
     credentials: true,
     methods: ['POST', 'GET', 'DELETE', 'PUT', 'PATCH'],
-  })
-);
+}
+*/
 const limiter = rateLimit({
   windowMs: 10 * 60 * 1000, // 10 mins
   max: 100,
