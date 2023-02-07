@@ -48,7 +48,13 @@ app.use(passport.session());
 
 app.use(xss());
 app.use(hpp());
-app.use(cors());
+app.use(
+  cors({
+    origin: '*',
+    credentials: false,
+    methods: ['POST', 'GET', 'DELETE', 'PUT', 'PATCH'],
+  })
+);
 /*
 {
     origin: 'http://localhost:3000',

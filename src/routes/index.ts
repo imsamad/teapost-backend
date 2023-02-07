@@ -29,7 +29,7 @@ Router.use(['/api/v1/health/', '/api/v1/'], (_req, res) => {
   // cluster.worker?.kill();
   return res.json({
     // dir: __dirname,
-    // env: process.env,
+    env: process.env,
     status: 'running[||]',
     // env: process.env.NODE_ENV,
     num: numOfCpu,
