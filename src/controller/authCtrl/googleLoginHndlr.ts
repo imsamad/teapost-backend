@@ -13,12 +13,14 @@ export const googleLoginHndlr = passport.authenticate('google', {
 });
 
 export const googleRedirectCtrl = [
-  passport.authenticate('google', {
+  passport.authenticate('google'),
+  /*
+ {
     failureRedirect: `${POST_LOGIN_REDIRECT}/auth`,
     failureMessage: true,
     // successReturnToOrRedirect: 'http://localhost:3000',
-  }),
-
+  }
+ */
   asyncHandler(async (req: Request, res: Response) => {
     if (!POST_LOGIN_REDIRECT) {
       // sos to developer team
