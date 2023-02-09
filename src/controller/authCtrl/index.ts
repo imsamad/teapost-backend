@@ -14,7 +14,7 @@ import {
   googleRedirectCtrl,
   getOAuthToken,
 } from './googleLoginHndlr';
-
+import { twitterLoginHndlr, twitterRedirectCtrl } from './twitterLoginHndlr';
 export default {
   logIn,
   register,
@@ -31,4 +31,6 @@ export default {
   googleLoginHndlr,
   googleRedirectCtrl,
   getOAuthToken,
+  twitterLoginHndlr,
+  twitterRedirectCtrl,
 };

@@ -18,6 +18,7 @@ interface User {
   oauthStrategy: 'google' | 'twitter' | 'instagram' | 'local';
   googleId: string;
   oauthData: Object;
+  twitterId: string;
 }
 
 export default User;

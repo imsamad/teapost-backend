@@ -3,14 +3,17 @@ import path from 'path';
 
 import * as dotenv from 'dotenv';
 dotenv.config();
+
 /**
  * {
   path: path.join(process.cwd(), '.env'),
 }
  */
+
 import connectDB from './db/connectDB';
 // import passport from './lib/passport/google';
 require('./lib/passport/google');
+// require('./lib/passport/twitter');
 import express from 'express';
 import morgan from 'morgan';
 import fileUpload from 'express-fileupload';
@@ -41,10 +44,11 @@ app.use(mongoSanitize());
 app.use(cookieParser());
 
 app.use(helmet());
+
 app.use(expressSession());
-// app.use(cookies());
 app.use(passport.initialize());
 app.use(passport.session());
+// app.use(cookies());
 
 app.use(xss());
 app.use(hpp());

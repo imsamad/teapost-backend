@@ -8,6 +8,9 @@ router.post('/register', authCtrl.register);
 
 router.get('/google_login', authCtrl.googleLoginHndlr);
 router.get('/google_cb', authCtrl.googleRedirectCtrl);
+// router.get('/twitter_login', authCtrl.twitterLoginHndlr);
+// router.get('/twitter_cb', authCtrl.twitterRedirectCtrl);
+
 router.get('/oauthtoken/:userId', authCtrl.getOAuthToken);
 
 router.get(

@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema(
     email: {
       type: String,
       // required: [true, 'Please add an email'],
-      unique: true,
+      // unique: true,
       // match: [
       //   /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
       //   "Please add a valid email",
@@ -59,6 +59,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       enum: ['google', 'twitter', 'instagram', 'local'],
     },
+    twitterId: String,
     googleId: String,
     oauthData: mongoose.Schema.Types.Mixed,
   },

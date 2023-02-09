@@ -7,8 +7,11 @@ const jwtSecret = process.env.JWT_SECRET!,
   jwtIssuer = process.env.JWT_ISSUER!;
 
 export const cookies = () => {
-  console.log({ maxAge: ms(jwtExpire), keys: [jwtSecret] });
-  return cookieSession();
+  return cookieSession({
+    name: 'session',
+    maxAge: ms(jwtExpire),
+    keys: [jwtSecret],
+  });
 };
 
 export const expressSession = () =>
@@ -17,8 +20,8 @@ export const expressSession = () =>
     resave: false,
     saveUninitialized: true,
     cookie: {
-      secure: true,
-      httpOnly: true,
+      secure: !true,
+      httpOnly: !true,
       domain: 'http://localhost:4000',
       // @ts-ignore
       expires: ms(jwtExpire),

@@ -15,17 +15,26 @@ passport.deserializeUser(async (userId, done) => {
   // @ts-ignore
   done(null, userId);
 });
+console.log('process.env.GOOGLE_CLIENT_ID ', process.env.GOOGLE_CLIENT_ID);
+
+console.log(
+  'process.env.GOOGLE_CLIENT_SECRET ',
+  process.env.GOOGLE_CLIENT_SECRET
+);
 
 passport.use(
   new Strategy(
     {
-      clientID: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+      // @ts-ignore
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      // @ts-ignore
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL:
         `http://teapost-backend.onrender.com/api/v1/auth/google_cb` ||
         '/api/v1/auth/google_cb',
       scope: ['profile', 'email'],
     },
+    // @ts-ignore
     async function (accessToken, refreshToken, { _raw, ...rest }, done) {
       const profile = rest;
       let emailInProfile = profile?.emails?.[0]?.value || profile?._json?.email;

@@ -8,6 +8,7 @@ const errorHandler = (
   res: Response,
   _next: NextFunction
 ) => {
+  console.log('eerr ', err);
   console.log(`${stars(4)} Error from error middleware ${stars(4)}`.red);
   if (!Object.values(err).length) {
     console.log(err);

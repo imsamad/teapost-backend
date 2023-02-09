@@ -69,9 +69,9 @@ export const importData = async (isKickstart = false) => {
     };
 
     /** Heavy task run individually */
-    // await lightWeightsSeeders();
-    await seeder.generateCollections();
-    await seeder.gradeComments();
+    await lightWeightsSeeders();
+    // await seeder.generateCollections();
+    // await seeder.gradeComments();
     // await seeder.checkCompatibility(!true);
 
     console.log('):- Data imported successfully'.green);

@@ -1,26 +1,24 @@
-import * as dotenv from "dotenv";
-import path from "path";
+import * as dotenv from 'dotenv';
+import path from 'path';
 
-dotenv.config({
-  path: path.join(__dirname, "../", `config`, ".env"),
-});
+dotenv.config();
 
-import "colors";
+import 'colors';
 
-import connectDB from "../src/db/connectDB";
+import connectDB from '../src/db/connectDB';
 
-import { deleteData, importData } from "./utils";
+import { deleteData, importData } from './utils';
 
 (async () => {
-  console.log("From script", process.argv);
-  console.time("Processing time ".green);
+  console.log('From script', process.argv);
+  console.time('Processing time '.green);
 
   await connectDB(true);
 
-  if (process.argv[2] == "-d") await deleteData();
-  else await importData(process.argv[2] == "-k");
+  if (process.argv[2] == '-d') await deleteData();
+  else await importData(process.argv[2] == '-k');
 
-  console.timeEnd("Processing time ".green);
+  console.timeEnd('Processing time '.green);
 
   // await seeder.totalDocs();
   // process.off
